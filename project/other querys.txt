@@ -1,0 +1,8 @@
+query to extract data from cloud sql to bigdata:
+     select * from external_query("ivory-setup-457110-g1.us.connection","select * from projectDB.failed_transactions");
+
+job submit command:
+C:\Windows\System32>gcloud dataproc jobs submit pyspark gs://eswar-bucket/clean.py --cluster=failed-trans --region=us-central1
+
+cluster creation command:
+  C:\Windows\System32>gcloud dataproc clusters create failed-trans --region=us-central1 --zone=us-central1-a --single-node --master-machine-type=n1-standard-2 --image-version=2.0-debian10
